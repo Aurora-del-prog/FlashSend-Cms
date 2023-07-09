@@ -1,4 +1,5 @@
 # https://editorconfig.org
+# 对所有文件生效
 root = true
 
 [*]
@@ -6,5 +7,7 @@ charset = utf-8
 indent_style = tab
 indent_size = 2
 end_of_line = lf
+# 代码最后新增一行
 insert_final_newline = true
+# 修剪尾随空格
 trim_trailing_whitespace = true
