@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-		// 测试环境
 		"build:stg": "tsc && vite build --mode stag",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
