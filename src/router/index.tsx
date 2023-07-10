@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter, useRoutes } from "react-router-dom";
 
 const Login = lazy( () => import('@/views/Login'))
 const Errot403 = lazy( () => import('@/views/Error403'))
@@ -27,8 +27,12 @@ const routes = [
   },
 	{
     path: '*',
-    element: <Navigate to='@/views/Errot404'/>
+    element: <Navigate to='/404'/>
   },
 ]
+
+// export default () => {
+// 	return useRoutes(router)
+// }
 
 export default createBrowserRouter(routes)
