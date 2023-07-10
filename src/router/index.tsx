@@ -1,17 +1,17 @@
 import { lazy } from "react";
 import { Navigate, createBrowserRouter, useRoutes } from "react-router-dom";
 
-const Login = lazy( () => import('@/views/Login'))
+const Login = lazy( () => import('@/views/login/Login'))
 const Errot403 = lazy( () => import('@/views/Error403'))
 const Errot404 = lazy( () => import('@/views/Errot404'))
-const Welcome = lazy( () => import('@/views/Welcome'))
+// const Welcome = lazy( () => import('@/views/Welcome'))
 
 
 
 const routes = [
 	{
 		path:'/',
-		element: <Welcome/>
+		element: <Navigate to='/login'/>
 	},
 	{
     path: '/login',
