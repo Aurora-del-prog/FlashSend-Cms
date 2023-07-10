@@ -1,4 +1,4 @@
-import request from '@/service/request'
+import request from '@/services/request'
 import { memo, useEffect } from 'react'
 
 const Login = memo(() => {

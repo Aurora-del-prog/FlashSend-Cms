@@ -1,9 +1,10 @@
 import { hideLoading, showLoading } from "@/views/Loading";
 import { message } from "antd";
 import axios, { AxiosError } from "axios";
-
+import storage from "@/utils/storage";
+import env from '@/config'
 /**
- * 创建实例（设置baseRL这些，对get、post请求进行封装）,封装请求拦截（config参数里面添加token、Loading组件设置）和响应拦截（对不同状态码进行不同的响应、Loading组件设置），最后给封装的get和post添加泛型，获取数据类型
+ * 创建实例（设置baseRL这些，对get、post请求进行封装）,封装请求拦截（config参数里面添加token、Loading组件设置）和响应拦截（对不同状态码进行不同的响应、Loading组件设置），最后给封装的get和post添加泛型，获取数据类型-进行环境变量的设置
  */
 
 // 创建实例
@@ -18,10 +19,15 @@ const instance = axios.create({
 instance.interceptors.request.use(
 	config => {
 		showLoading()
-		const token = localStorage.getItem('token')
+		const token = storage.get('token')
 		if(token){
 			config.headers.Authorization = 'Token::' + token
 		}
+		if (env.mock) {
+      config.baseURL = env.mockApi
+    } else {
+      config.baseURL = env.baseApi
+    }
 		return {
 			...config
 		}
