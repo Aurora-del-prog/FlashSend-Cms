@@ -1,4 +1,4 @@
-import { Button, Form, Input, message } from 'antd'
+import { App, Button, Form, Input, message } from 'antd'
 import React, { memo } from 'react'
 import styles from './index.module.less'
 import storage from '@/utils/storage'
@@ -6,16 +6,16 @@ import loginService from '@/services/login/loginService'
 import LoginType from '@/services/types'
 
 const Login = memo(() => {
-
+	const { message, notification, modal } = App.useApp();
 	const onFinish = async (values: LoginType.params) => {
     try {
       const data = await loginService.login(values)
-			console.log(data)
       storage.set('token', data)
       message.success('登录成功')
-      const params = new URLSearchParams(location.search)
+			// 处理 URL 查询参数和重定向页面
+      // const params = new URLSearchParams(location.search)
       // setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
-      //   location.href = params.get('callback') || '/welcome'
+      //   location.href = params.get('callback') || '/login'
       // })
     } catch (error) {
 			console.log(error)
