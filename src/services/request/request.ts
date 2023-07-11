@@ -1,9 +1,11 @@
-import { hideLoading, showLoading } from "@/views/loading";
-import { message } from "antd";
 import axios, { AxiosError } from "axios";
+import { message } from "@/components/message/GlobalMessage";
+
 import storage from "@/utils/storage";
 import env from '@/config'
 import { Result } from "../types/requestType";
+
+import { hideLoading, showLoading } from "@/views/loading";
 /**
  * 创建实例（设置baseRL这些，对get、post请求进行封装）,封装请求拦截（config参数里面添加token、Loading组件设置）和响应拦截（对不同状态码进行不同的响应、Loading组件设置），最后给封装的get和post添加泛型，获取数据类型-进行环境变量的设置
  */

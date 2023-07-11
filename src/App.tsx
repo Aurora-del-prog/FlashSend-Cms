@@ -3,7 +3,8 @@ import { BrowserRouter, RouterProvider } from 'react-router-dom'
 import route from './router'
 // import Router from './router'
 
-import { ConfigProvider } from 'antd'
+import { ConfigProvider, App as AntdApp } from 'antd'
+import GlobalMessage from './components/message/GlobalMessage'
 import './App.less'
 
 function App() {
@@ -17,7 +18,10 @@ function App() {
 			}}
 		>
 			<Suspense fallback={<div>Loading...</div>}>
-				<RouterProvider router={route}/>
+				<AntdApp>
+					<GlobalMessage />
+					<RouterProvider router={route}/>
+				</AntdApp>
 			</Suspense>
 		</ConfigProvider>
 
