@@ -1,15 +1,18 @@
 import { App, Button, Form, Input, message } from 'antd'
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import styles from './index.module.less'
 import storage from '@/utils/storage'
 import loginService from '@/services/login/loginService'
 import LoginType from '@/services/types'
 
 const Login = memo(() => {
+	const [loading, setLoading] = useState(false)
 	const { message, notification, modal } = App.useApp();
 	const onFinish = async (values: LoginType.params) => {
     try {
+			setLoading(true)
       const data = await loginService.login(values)
+			setLoading(false)
       storage.set('token', data)
       message.success('登录成功')
 			// 处理 URL 查询参数和重定向页面
@@ -18,6 +21,7 @@ const Login = memo(() => {
       //   location.href = params.get('callback') || '/login'
       // })
     } catch (error) {
+			setLoading(false)
 			console.log(error)
     }
   }
@@ -43,7 +47,8 @@ const Login = memo(() => {
 				</Form.Item>
 
 				<Form.Item>
-					<Button type='primary' block htmlType='submit' >
+					<Button type='primary' block htmlType='submit'
+					loading={loading}>
 						登录
 					</Button>
 				</Form.Item>
