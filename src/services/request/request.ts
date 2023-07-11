@@ -3,7 +3,7 @@ import { message } from "@/components/message/GlobalMessage";
 
 import storage from "@/utils/storage";
 import env from '@/config'
-import { Result } from "../types/requestType";
+import { Result } from "./type";
 
 import { hideLoading, showLoading } from "@/views/loading";
 /**

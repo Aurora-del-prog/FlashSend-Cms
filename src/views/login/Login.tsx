@@ -2,8 +2,8 @@ import { App, Button, Form, Input, message } from 'antd'
 import React, { memo, useState } from 'react'
 import styles from './index.module.less'
 import storage from '@/utils/storage'
-import loginService from '@/services/login/loginService'
-import LoginType from '@/services/types'
+import { login } from '@/services/login/login'
+import { Login as LoginType } from '@/services/login/type'
 
 const Login = memo(() => {
 	const [loading, setLoading] = useState(false)
@@ -11,7 +11,7 @@ const Login = memo(() => {
 	const onFinish = async (values: LoginType.params) => {
     try {
 			setLoading(true)
-      const data = await loginService.login(values)
+      const data = await login(values)
 			setLoading(false)
       storage.set('token', data)
       message.success('登录成功')

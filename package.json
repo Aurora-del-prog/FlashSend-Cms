@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-		"build:stg": "tsc && vite build --mode stag",
+    "build:stg": "tsc && vite build --mode stag",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
@@ -15,7 +15,8 @@
     "axios": "^1.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.14.1"
+    "react-router-dom": "^6.14.1",
+    "zustand": "^4.3.9"
   },
   "devDependencies": {
     "@types/node": "^20.4.1",
