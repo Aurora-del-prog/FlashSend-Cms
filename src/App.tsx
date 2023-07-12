@@ -4,7 +4,7 @@ import route from './router'
 // import Router from './router'
 
 import { ConfigProvider, App as AntdApp } from 'antd'
-import GlobalMessage from './components/message/GlobalMessage'
+import GlobalMessage from './components/Message/GlobalMessage'
 import './App.less'
 
 function App() {

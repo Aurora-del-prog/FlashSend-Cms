@@ -1,10 +1,23 @@
 import { Login } from "@/services/login/type"
+import { User } from "@/services/user/type"
 
 export default interface user{
 	token: string,
 	userInfo: {
-    userEmail: string
+		_id: string
+    userId: number
     userName: string
+    userEmail: string
+    deptId: string
+    state: number
+    role: number
+    roleList: string
+    createId: number
+    deptName: string
+    userImg: string
   },
-	getToken: (value: Login.params) => Promise<string>
+	collapsed: boolean,
+	getToken: (value: Login.params) => Promise<string>,
+	getUserInfo: () => Promise<User.UserItem>,
+	updateCollapsed: () => void
 }

@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { message } from "@/components/message/GlobalMessage";
+import { message } from "@/components/Message/GlobalMessage";
 
 import storage from "@/utils/storage";
 import env from '@/config'

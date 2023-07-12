@@ -19,8 +19,8 @@ const Login = memo(() => {
 			// 处理 URL 查询参数和重定向页面
       const params = new URLSearchParams(location.search)
       setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
-        location.href = params.get('callback') || '/index'
-      })
+        location.href = params.get('callback') || '/index/welcome'
+      },1)
     } catch (error) {
 			setLoading(false)
 			console.log(error)

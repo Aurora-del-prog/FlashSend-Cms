@@ -5,6 +5,7 @@ const Login = lazy( () => import('@/views/login/Login'))
 const Errot403 = lazy( () => import('@/views/Error403'))
 const Errot404 = lazy( () => import('@/views/Errot404'))
 const Index = lazy( () => import('@/views/index/index'))
+const Welcome = lazy(() => import('@/views/index/components/welcome/welcome'))
 
 
 
@@ -15,7 +16,13 @@ const routes = [
 	},
 	{
     path: '/index',
-    element: <Index />
+    element: <Index />,
+		children:[
+			{
+				path: 'welcome',
+				element: <Welcome />
+			}
+		]
   },
 	{
     path: '/login',
