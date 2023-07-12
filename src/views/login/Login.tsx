@@ -1,25 +1,26 @@
 import { App, Button, Form, Input, message } from 'antd'
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import styles from './index.module.less'
-import storage from '@/utils/storage'
-import { login } from '@/services/login/login'
 import { Login as LoginType } from '@/services/login/type'
+import { useUserStore } from '@/store/user/user'
 
 const Login = memo(() => {
+	const getToken = useUserStore(state => state.getToken)
 	const [loading, setLoading] = useState(false)
 	const { message, notification, modal } = App.useApp();
 	const onFinish = async (values: LoginType.params) => {
     try {
 			setLoading(true)
-      const data = await login(values)
-			setLoading(false)
-      storage.set('token', data)
+      // const data = await login(values)
+			const data = await getToken(values)
+			data && setLoading(false)
+      // storage.set('token', data)
       message.success('登录成功')
 			// 处理 URL 查询参数和重定向页面
-      // const params = new URLSearchParams(location.search)
-      // setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
-      //   location.href = params.get('callback') || '/login'
-      // })
+      const params = new URLSearchParams(location.search)
+      setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
+        location.href = params.get('callback') || '/index'
+      })
     } catch (error) {
 			setLoading(false)
 			console.log(error)
