@@ -7,6 +7,7 @@ const Errot404 = lazy( () => import('@/views/Errot404'))
 const Index = lazy( () => import('@/views/index/index'))
 const Welcome = lazy(() => import('@/views/index/components/welcome/welcome'))
 const Dashboard = lazy(() => import('@/views/dashboard/dashboard'))
+const User = lazy(() => import('@/views/system/user'))
 
 
 
@@ -26,7 +27,11 @@ const routes = [
 			{
 				path: 'dashboard',
 				element: <Dashboard />
-			}
+			},
+      {
+        path: 'userList',
+        element: <User />
+      }
 		]
   },
 	{
