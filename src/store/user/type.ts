@@ -10,6 +10,8 @@ export default interface user{
     userEmail: string
     deptId: string
     state: number
+    mobile: string
+    job: string
     role: number
     roleList: string
     createId: number

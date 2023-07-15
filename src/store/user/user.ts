@@ -15,11 +15,13 @@ export const useUserStore = create<user>(
 			userEmail: '',
 			deptId: '',
 			state: 0,
+			mobile: '',
+			job: '',
 			role: 0,
 			roleList: '',
 			createId: 0,
 			deptName: '',
-			userImg: '',
+			userImg: ''
 		},
 		collapsed: false,
 		getToken: async (value: Login.params) => {

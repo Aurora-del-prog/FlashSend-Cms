@@ -19,7 +19,7 @@ const Login = memo(() => {
 			// 处理 URL 查询参数和重定向页面
       const params = new URLSearchParams(location.search)
       setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
-        location.href = params.get('callback') || '/index/welcome'
+        location.href = params.get('callback') || '/index/dashboard'
       },1)
     } catch (error) {
 			setLoading(false)
@@ -39,11 +39,14 @@ const Login = memo(() => {
 			>
 				<Form.Item name='userName'
 				rules={[{ required: true, message: 'Please input your username!' }]}
+				initialValue="2744166358"
 				>
-					<Input placeholder="用户名" />
+					<Input placeholder="用户名"/>
 				</Form.Item>
 
-				<Form.Item name='userPwd' rules={[{ required: true, message: 'Please input your password!' }]}>
+				<Form.Item name='userPwd' rules={[{ required: true, message: 'Please input your password!' }]}
+				initialValue="123456"
+				>
 					<Input.Password placeholder="密码" />
 				</Form.Item>
 

@@ -1,5 +1,5 @@
 import NavHeader from '@/components/NavHeader'
-import { Layout, Space } from 'antd'
+import { Layout, Space, Watermark } from 'antd'
 import Sider from 'antd/es/layout/Sider'
 import { Content, Header } from 'antd/es/layout/layout'
 import { memo, useEffect } from 'react'
@@ -24,20 +24,22 @@ const index = memo(() => {
 
 	return (
 	<Space direction="vertical" style={{ width: '100%' }} size={[0, 48]}>
-		<Layout>
-			<Sider collapsed={collapsed}
-			style={{width: collapsed ? 80 : 'auto'}}>
-				<Menu />
-			</Sider>
+		<Watermark content='React'>
 			<Layout>
-				<Header className={styles.header} >
-					<NavHeader></NavHeader>
-				</Header>
-				<Content className={styles.content} >
-					<Outlet />
-				</Content>
+				<Sider collapsed={collapsed}
+				style={{width: collapsed ? 80 : 'auto'}}>
+					<Menu />
+				</Sider>
+				<Layout>
+					<Header className={styles.header} >
+						<NavHeader></NavHeader>
+					</Header>
+					<div className={styles.wrapper}>
+            <Outlet></Outlet>
+          </div>
+				</Layout>
 			</Layout>
-		</Layout>
+		</Watermark>
   </Space>
 	)
 })

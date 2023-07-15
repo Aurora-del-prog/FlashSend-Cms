@@ -26,7 +26,7 @@ const SideMenu = () => {
     }
   ]
   const handleClickLogo = () => {
-    navigate('/welcome')
+    navigate('/index/welcome')
   }
   return (
     <div>
