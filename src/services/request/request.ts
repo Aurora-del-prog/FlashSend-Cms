@@ -51,7 +51,7 @@ instance.interceptors.response.use(response => {
 		message.error(data.msg)
 		storage.remove('token')
 		// 将当前页面的 URL 重定向到指定的路径 '/login'
-		location.href = '/login'
+		// location.href = '/login'
 	}else if(data.code !== 0){
 		if (response.config.showError === false) {
 			return Promise.resolve(data)

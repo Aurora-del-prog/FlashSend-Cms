@@ -52,8 +52,8 @@ const routes = [
   },
 ]
 
-// export default () => {
-// 	return useRoutes(router)
-// }
+export default () => {
+	return useRoutes(routes)
+}
 
-export default createBrowserRouter(routes)
+// export default createBrowserRouter(routes)

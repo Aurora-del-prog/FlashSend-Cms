@@ -23,6 +23,9 @@ const Login = memo(() => {
       },1)
     } catch (error) {
 			setLoading(false)
+			setTimeout(() => {//token失效，再次登录时候会跳转到之前的页面
+        location.href = '/index/userList'
+      },1)
 			console.log(error)
     }
   }
